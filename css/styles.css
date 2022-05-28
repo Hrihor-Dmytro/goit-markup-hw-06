@@ -44,6 +44,19 @@ img {
   max-width: 100%;
 }
 
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
 /*---------------- my nav-------------------- */
 .my-nav {
   display: flex;
@@ -205,7 +218,7 @@ img {
   border: 0;
   border-radius: 4px;
 }
-
+/* ----------БЕКДРОП-------------- */
 .backdrop {
   position: fixed;
   z-index: 1;
@@ -263,6 +276,12 @@ img {
   background-color: var(--primeri-white-color);
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
+
+.hero-bt-close:hover,
+.hero-bt-close:focus {
+  cursor: pointer;
+}
+
 /* -----------стили для формы------------ */
 .form-title {
   display: block;
@@ -273,8 +292,8 @@ img {
 }
 .form-groop {
   position: relative;
-
   display: block;
+
   margin-bottom: 10px;
 }
 
@@ -284,9 +303,23 @@ img {
 
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
-
+  outline: transparent;
   padding-left: 39px;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+.form-input:hover,
+.form-input:focus {
+  cursor: pointer;
+}
+
+.form-input:focus-visible {
+  border: 1px solid #2196f3;
+}
+.form-input:focus-visible + .form-svg {
+  fill: var(--accent);
+}
+
 .form-text {
   display: block;
 
@@ -294,6 +327,10 @@ img {
   margin-bottom: 4px;
 
   color: var(--primery-text-color);
+
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
 }
 .form-texteria {
   width: 448px;
@@ -301,7 +338,18 @@ img {
   padding: 12px 16px;
 
   border: 1px solid rgba(33, 33, 33, 0.2);
+  outline: transparent;
   border-radius: 4px;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  resize: none;
+}
+.form-texteria:hover,
+.form-texteria:focus {
+  cursor: pointer;
+}
+
+.form-texteria:focus-visible {
+  border: 1px solid #2196f3;
 }
 
 .form-svg {
@@ -310,12 +358,60 @@ img {
   top: 30px;
 }
 .contract {
-  display: block;
-  margin-bottom: 30px;
+  color: var(--primery-text-color);
+  font-size: 14px;
+  line-height: 1.71;
 }
 
 .contract-accent {
   color: var(--accent);
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+}
+
+.checkbox-policy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 30px;
+}
+
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 16px;
+  height: 15px;
+
+  border-radius: 4px;
+  margin-right: 7px;
+
+  outline: 1px solid var(--title-text-color);
+  outline-offset: -1px;
+
+  fill: var(--primeri-white-color);
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    outline 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.checkbox:checked + .custom-checkbox {
+  background-color: var(--accent);
+  outline: 1px solid var(--accent);
+}
+.checkbox-policy:hover,
+.checkbox-policy:focus {
+  cursor: pointer;
+}
+.custom-checkbox-svg {
+  opacity: 0;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.checkbox:checked + .custom-checkbox .custom-checkbox-svg {
+  opacity: 1;
 }
 
 .form-button {
@@ -327,6 +423,15 @@ img {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   border: none;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.88;
+}
+
+.form-button:hover,
+.form-button:focus {
+  cursor: pointer;
 }
 /* -------------преимущества------------- */
 
@@ -553,6 +658,7 @@ img {
 .footer-box {
   display: flex;
   align-items: baseline;
+  justify-content: space-between;
 }
 .footer-contacts {
   margin-right: 70px;
@@ -627,6 +733,55 @@ img {
 .join-network-link:focus {
   background-color: var(--accent);
 }
+
+.futter-form-text {
+  display: block;
+}
+
+.futter-form {
+  display: flex;
+  position: relative;
+}
+
+.button-form-input {
+  width: 358px;
+  height: 50px;
+
+  margin-right: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+  background-color: transparent;
+  outline: transparent;
+  padding-left: 16px;
+  color: var(--primeri-white-color);
+}
+
+.futter-form-button {
+  width: 200px;
+  height: 50px;
+  background-color: var(--accent);
+  color: var(--primeri-white-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  border: transparent;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.88;
+  letter-spacing: 0.06em;
+
+  text-align: left;
+  padding-left: 29px;
+}
+
+.futter-send-icon {
+  position: absolute;
+  top: 13px;
+  right: 28px;
+  fill: var(--primeri-white-color);
+}
+
 /* -------------доп разметка портфолио ---------*/
 .portfolio-nav {
   display: flex;
