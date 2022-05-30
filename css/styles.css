@@ -275,11 +275,15 @@ img {
   border-radius: 50%;
   background-color: var(--primeri-white-color);
   border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-bt-close:hover,
 .hero-bt-close:focus {
   cursor: pointer;
+  fill: var(--accent);
+  transform: scale(1.4) rotate(180deg);
 }
 
 /* -----------стили для формы------------ */
@@ -296,6 +300,10 @@ img {
 
   margin-bottom: 10px;
 }
+.form-groop-last {
+  margin-bottom: 20px;
+  display: block;
+}
 
 .form-input {
   width: 448px;
@@ -305,9 +313,9 @@ img {
   border-radius: 4px;
   outline: transparent;
   padding-left: 39px;
-  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .form-input:hover,
 .form-input:focus {
   cursor: pointer;
@@ -318,6 +326,7 @@ img {
 }
 .form-input:focus-visible + .form-svg {
   fill: var(--accent);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-text {
@@ -333,13 +342,19 @@ img {
   letter-spacing: 0.01em;
 }
 .form-texteria {
+  display: block;
+  margin-top: 0;
+
   width: 448px;
   height: 120px;
+
   padding: 12px 16px;
 
   border: 1px solid rgba(33, 33, 33, 0.2);
   outline: transparent;
+
   border-radius: 4px;
+
   transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
   resize: none;
 }
@@ -397,10 +412,16 @@ img {
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     outline 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.checkbox:focus-visible + .custom-checkbox {
+  outline: 2px solid var(--accent);
+}
+
 .checkbox:checked + .custom-checkbox {
   background-color: var(--accent);
   outline: 1px solid var(--accent);
 }
+
 .checkbox-policy:hover,
 .checkbox-policy:focus {
   cursor: pointer;
@@ -415,8 +436,13 @@ img {
 }
 
 .form-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
   width: 200px;
   height: 50px;
+
   background-color: var(--accent);
   color: var(--primeri-white-color);
 
@@ -427,6 +453,7 @@ img {
   font-weight: 700;
   font-size: 16px;
   line-height: 1.88;
+  letter-spacing: 0.06em;
 }
 
 .form-button:hover,
@@ -658,8 +685,8 @@ img {
 .footer-box {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
 }
+
 .footer-contacts {
   margin-right: 70px;
 }
@@ -695,6 +722,10 @@ img {
 
 .footer-logo {
   color: var(--primeri-white-color);
+}
+
+.footer-link {
+  margin-right: auto;
 }
 
 .join {
@@ -756,7 +787,9 @@ img {
   padding-left: 16px;
   color: var(--primeri-white-color);
 }
-
+.button-form-input:focus-visible {
+  border: 1px solid var(--primeri-white-color);
+}
 .futter-form-button {
   width: 200px;
   height: 50px;
